@@ -2,4 +2,9 @@
   <Folder Name="/src/">
     <Project Path="src/WB.Process.csproj" />
   </Folder>
+  <Folder Name="/tests/" />
+  <Folder Name="/tests/ProcessTests/" />
+  <Folder Name="/tests/ProcessTests/src/">
+    <Project Path="tests/ProcessTests/src/ProcessTests.csproj" />
+  </Folder>
 </Solution>

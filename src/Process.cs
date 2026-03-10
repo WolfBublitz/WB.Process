@@ -11,7 +11,7 @@ namespace WB.Process;
 /// </summary>
 /// <param name="command">The command to execute.</param>
 /// <param name="arguments">A list of parameters.</param>
-public sealed class Process(string command, string[] arguments) : IDisposable
+public sealed class Process(string command, params string[] arguments) : IDisposable
 {
     // ┌─────────────────────────────────────────────────────────────────────────────┐
     // │ Private Fields                                                              │
