@@ -1,0 +1,140 @@
+{
+	// Place your Archive workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"Class Section Public Properties": {
+		"scope": "csharp",
+		"prefix": "doc_class_section_public_properties",
+		"body": [
+			"// ┌─────────────────────────────────────────────────────────────────────────────┐",
+			"// │ Public Properties                                                           │",
+			"// └─────────────────────────────────────────────────────────────────────────────┘",
+		]
+	},
+	"Class Section Protected Properties": {
+		"scope": "csharp",
+		"prefix": "doc_class_section_protected_properties",
+		"body": [
+			"// ┌─────────────────────────────────────────────────────────────────────────────┐",
+			"// │ Protected Properties                                                        │",
+			"// └─────────────────────────────────────────────────────────────────────────────┘",
+		]
+	},
+	"Class Section Private Properties": {
+		"scope": "csharp",
+		"prefix": "doc_class_section_private_properties",
+		"body": [
+			"// ┌─────────────────────────────────────────────────────────────────────────────┐",
+			"// │ Private Properties                                                          │",
+			"// └─────────────────────────────────────────────────────────────────────────────┘",
+		]
+	},
+
+	"Class Section Public Fields": {
+		"scope": "csharp",
+		"prefix": "doc_class_section_public_fields",
+		"body": [
+			"// ┌─────────────────────────────────────────────────────────────────────────────┐",
+			"// │ Public Fields                                                               │",
+			"// └─────────────────────────────────────────────────────────────────────────────┘",
+		]
+	},
+
+	"Class Section Protected Fields": {
+		"scope": "csharp",
+		"prefix": "doc_class_section_protected_fields",
+		"body": [
+			"// ┌─────────────────────────────────────────────────────────────────────────────┐",
+			"// │ Protected Fields                                                            │",
+			"// └─────────────────────────────────────────────────────────────────────────────┘",
+		]
+	},
+
+	"Class Section Private Fields": {
+		"scope": "csharp",
+		"prefix": "doc_class_section_private_fields",
+		"body": [
+			"// ┌─────────────────────────────────────────────────────────────────────────────┐",
+			"// │ Private Fields                                                              │",
+			"// └─────────────────────────────────────────────────────────────────────────────┘",
+		]
+	},
+	
+	"Class Section Public Methods": {
+		"scope": "csharp",
+		"prefix": "doc_class_section_public_methods",
+		"body": [
+			"// ┌─────────────────────────────────────────────────────────────────────────────┐",
+			"// │ Public Methods                                                              │",
+			"// └─────────────────────────────────────────────────────────────────────────────┘",
+		]
+	},
+	"Class Section Protected Methods": {
+		"scope": "csharp",
+		"prefix": "doc_class_section_protected_methods",
+		"body": [
+			"// ┌─────────────────────────────────────────────────────────────────────────────┐",
+			"// │ Protected Methods                                                           │",
+			"// └─────────────────────────────────────────────────────────────────────────────┘",
+		]
+	},
+	"Class Section Private Methods": {
+		"scope": "csharp",
+		"prefix": "doc_class_section_private_methods",
+		"body": [
+			"// ┌─────────────────────────────────────────────────────────────────────────────┐",
+			"// │ Private Methods                                                             │",
+			"// └─────────────────────────────────────────────────────────────────────────────┘",
+		]
+	},
+	"Class Section Public Constructors": {
+		"scope": "csharp",
+		"prefix": "doc_class_section_public_constructors",
+		"body": [
+			"// ┌─────────────────────────────────────────────────────────────────────────────┐",
+			"// │ Public Constructors                                                         │",
+			"// └─────────────────────────────────────────────────────────────────────────────┘",
+		]
+	},
+	"Class Section Protected Constructors": {
+		"scope": "csharp",
+		"prefix": "doc_class_section_protected_constructors",
+		"body": [
+			"// ┌─────────────────────────────────────────────────────────────────────────────┐",
+			"// │ Protected Constructors                                                      │",
+			"// └─────────────────────────────────────────────────────────────────────────────┘",
+		]
+	},
+	"Class Section Private Constructors": {
+		"scope": "csharp",
+		"prefix": "doc_class_section_private_constructors",
+		"body": [
+			"// ┌─────────────────────────────────────────────────────────────────────────────┐",
+			"// │ Private Constructors                                                        │",
+			"// └─────────────────────────────────────────────────────────────────────────────┘",
+		]
+	},
+	"Class Section Events": {
+		"scope": "csharp",
+		"prefix": "doc_class_section_events",
+		"body": [
+			"// ┌─────────────────────────────────────────────────────────────────────────────┐",
+			"// │ Events                                                                      │",
+			"// └─────────────────────────────────────────────────────────────────────────────┘",
+		]
+	},
+
+}
