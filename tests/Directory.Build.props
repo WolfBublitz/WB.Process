@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="$(MSBuildThisFileDirectory)../src/WB.Processing.csproj" />
+    <ProjectReference Include="$(MSBuildThisFileDirectory)../src/WB.Toolkit.csproj" />
   </ItemGroup>
 
   <ItemGroup>

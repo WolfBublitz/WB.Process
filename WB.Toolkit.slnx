@@ -1,6 +1,6 @@
 <Solution>
   <Folder Name="/src/">
-    <Project Path="src/WB.Processing.csproj" />
+    <Project Path="src/WB.Toolkit.csproj" />
   </Folder>
   <Folder Name="/tests/" />
   <Folder Name="/tests/ProcessTests/" />

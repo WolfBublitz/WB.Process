@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using AwesomeAssertions;
-using WB.Processing;
+using WB.Toolkit;
 
-namespace ProcessTests.PropertyTests.ArgumentsProperyTests;
+namespace ProcessTests.PropertyTests.ArgumentsPropertyTests;
 
 public sealed class TheArgumentsProperty
 {

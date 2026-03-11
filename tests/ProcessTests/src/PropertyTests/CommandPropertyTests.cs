@@ -1,5 +1,5 @@
 using AwesomeAssertions;
-using WB.Processing;
+using WB.Toolkit;
 
 namespace ProcessTests.PropertyTests.CommandPropertyTests;
 

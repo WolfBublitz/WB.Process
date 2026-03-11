@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading;
 using System.Threading.Tasks;
 using R3;
 
-namespace WB.Processing;
+namespace WB.Toolkit;
 
 /// <summary>
-/// A Process.
+/// A Process that executes a <paramref name="command"/> with a list of <paramref name="arguments"/>.
 /// </summary>
 /// <param name="command">The command to execute.</param>
 /// <param name="arguments">A list of parameters.</param>
@@ -16,7 +17,6 @@ public sealed class Process(string command, params string[] arguments) : IDispos
     // ┌─────────────────────────────────────────────────────────────────────────────┐
     // │ Private Fields                                                              │
     // └─────────────────────────────────────────────────────────────────────────────┘
-
     private readonly Subject<string> standardOutput = new();
 
     private readonly Subject<string> standardError = new();
@@ -67,8 +67,9 @@ public sealed class Process(string command, params string[] arguments) : IDispos
     /// <summary>
     /// Executes the <see cref="Command"/> asynchronous
     /// </summary>
+    /// <param name="cancellationToken">A <see cref="CancellationToken"/> to cancel the execution.</param>
     /// <returns>A <see cref="Task"/> that delivers the exit code of the <see cref="Process"/>.</returns>
-    public async Task<int> ExecuteAsync()
+    public async Task<int> ExecuteAsync(CancellationToken cancellationToken = default)
     {
         using System.Diagnostics.Process process = new()
         {
@@ -76,24 +77,42 @@ public sealed class Process(string command, params string[] arguments) : IDispos
             EnableRaisingEvents = true,
         };
 
-        process.OutputDataReceived += (sender, args) =>
+        try
         {
-            if (args.Data is not null)
-            {
-                standardOutput.OnNext(args.Data);
-            }
-        };
+            process.OutputDataReceived += OnOutputDataReceived;
+            process.ErrorDataReceived += OnErrorDataReceived;
 
-        process.ErrorDataReceived += (sender, args) =>
+            process.Start();
+            process.BeginErrorReadLine();
+            process.BeginOutputReadLine();
+
+            await process.WaitForExitAsync(cancellationToken).ConfigureAwait(false);
+
+            return process.ExitCode;
+        }
+        finally
         {
-            if (args.Data is not null)
-            {
-                standardError.OnNext(args.Data);
-            }
-        };
+            process.OutputDataReceived -= OnOutputDataReceived;
+            process.ErrorDataReceived -= OnErrorDataReceived;
+        }
+    }
 
-        await process.WaitForExitAsync().ConfigureAwait(false);
+    // ┌─────────────────────────────────────────────────────────────────────────────┐
+    // │ Private Methods                                                             │
+    // └─────────────────────────────────────────────────────────────────────────────┘
+    private void OnOutputDataReceived(object sender, DataReceivedEventArgs args)
+    {
+        if (args.Data is not null)
+        {
+            standardOutput.OnNext(args.Data);
+        }
+    }
 
-        return process.ExitCode;
+    private void OnErrorDataReceived(object sender, DataReceivedEventArgs args)
+    {
+        if (args.Data is not null)
+        {
+            standardError.OnNext(args.Data);
+        }
     }
 }
