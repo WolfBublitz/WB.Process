@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using R3;
+using WB.Logging;
 
 namespace WB.Toolkit;
 
@@ -53,6 +54,12 @@ public sealed class Process(string command, params string[] arguments) : IDispos
     /// </summary>
     public Observable<string> StandardOutput => standardOutput.AsObservable();
 
+    /// <summary>
+    /// Gets the <see cref="ILogger"/> that is used to log the standard output and error messages. 
+    /// If <c>null</c>, the messages are not logged.
+    /// </summary>
+    public ILogger? Logger { get; init; }
+
     // ┌─────────────────────────────────────────────────────────────────────────────┐
     // │ Public Methods                                                              │
     // └─────────────────────────────────────────────────────────────────────────────┘
@@ -71,11 +78,21 @@ public sealed class Process(string command, params string[] arguments) : IDispos
     /// <returns>A <see cref="Task"/> that delivers the exit code of the <see cref="Process"/>.</returns>
     public async Task<int> ExecuteAsync(CancellationToken cancellationToken = default)
     {
-        using System.Diagnostics.Process process = new()
+        using CompositeDisposable disposables = new();
+
+        System.Diagnostics.Process process = new()
         {
             StartInfo = processStartInfo,
             EnableRaisingEvents = true,
         };
+
+        disposables.Add(process);
+
+        if (Logger is not null)
+        {
+            disposables.Add(StandardOutput.Subscribe(Logger.Info));
+            disposables.Add(StandardError.Subscribe(Logger.Info));
+        }
 
         try
         {

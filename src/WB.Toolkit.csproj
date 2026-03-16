@@ -98,6 +98,7 @@
        ╰──────────────────────────────────────────────────────────────────────╯ -->
   <ItemGroup>
     <PackageReference Include="R3" />
+    <PackageReference Include="WB.Logging" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(SourceBuild)' != 'true'">

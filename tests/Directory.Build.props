@@ -15,6 +15,7 @@
   <ItemGroup>
     <PackageReference Include="AwesomeAssertions" />
     <PackageReference Include="AwesomeAssertions.Analyzers" />
+    <PackageReference Include="FakeItEasy" />
     <PackageReference Include="TUnit" />
     <PackageReference Include="Verify" />
     <PackageReference Include="Verify.TUnit" />
