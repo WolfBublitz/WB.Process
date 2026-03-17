@@ -37,7 +37,14 @@ process.OutputDataReceived += (_, e) =>
 {
     if (!string.IsNullOrEmpty(e.Data))
     {
-        logger.Info(e.Data);
+        if (e.Data.Contains("error", StringComparison.OrdinalIgnoreCase))
+        {
+            logger.Error(e.Data);
+        }
+        else
+        {
+            logger.Info(e.Data);
+        }
     }
 };
 process.ErrorDataReceived += (_, e) =>
