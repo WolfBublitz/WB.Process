@@ -23,4 +23,4 @@ jobs:
       working-directory: src
       run: |
         chmod +x $GITHUB_WORKSPACE/.github/workflows/scripts/build-nuget.cs
-        $GITHUB_WORKSPACE/.github/workflows/scripts/build-nuget.cs src/WB.Toolkit.csproj
+        $GITHUB_WORKSPACE/.github/workflows/scripts/build-nuget.cs $GITHUB_WORKSPACE/src/WB.Toolkit.csproj
