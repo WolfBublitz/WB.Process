@@ -1,4 +1,4 @@
-#!/usr/bin/env dotnet
+#!/usr/share/dotnet dotnet
 #:package WB.Logging@1.0.0
 
 using System.Diagnostics;
