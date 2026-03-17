@@ -24,4 +24,4 @@ jobs:
 
     - name: Build
       working-directory: src
-      run: scripts/build-nuget.cs WB.Toolkit.csproj
+      run: build-nuget.cs WB.Toolkit.csproj
